@@ -1,4 +1,52 @@
 # HackAthon
+
+# ================================================DENPENDENCIAS=================================================
+
+Lista das dependências que mencionamos nos exemplos anteriores, juntamente com suas descrições e os comandos para instalá-las:
+
+1. **Node.js:**
+   Plataforma JavaScript de código aberto para desenvolvimento de aplicativos do lado do servidor. Instale usando o Node Version Manager (NVM) para melhor controle sobre as versões do Node.js.
+
+   - **Site:** https://nodejs.org/
+   - **Instalação do NVM (Opcional):** `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash`
+   - **Instalação do Node.js usando NVM:** `nvm install node`
+
+2. **Express.js:**
+   Framework web rápido, flexível e minimalista para Node.js, que simplifica a criação de APIs e aplicativos da web.
+
+   - **Site:** https://expressjs.com/
+   - **Instalação:** `npm install express`
+
+3. **body-parser:**
+   Middleware para analisar os corpos das solicitações HTTP, especialmente útil para processar dados de formulários HTML ou JSON.
+
+   - **Site:** https://www.npmjs.com/package/body-parser
+   - **Instalação:** `npm install body-parser`
+
+4. **Postman:**
+   Ferramenta de colaboração para testar APIs, onde você pode criar, testar e compartilhar solicitações HTTP.
+
+   - **Site:** https://www.postman.com/
+   - **Instalação:** Baixe e instale a versão apropriada para o seu sistema operacional.
+
+Lembre-se de que, para instalar as dependências, você deve estar no diretório do projeto (onde seu arquivo `package.json` está localizado) e executar os comandos `npm install <nome_da_dependencia>`. Certifique-se de substituir `<nome_da_dependencia>` pelo nome da dependência específica que você deseja instalar.
+
+Por exemplo, para instalar o Express.js, você executaria:
+
+```sh
+npm install express
+```
+
+E para instalar todas as dependências de uma vez, você pode executar:
+
+```sh
+npm install express body-parser
+```
+
+Cada dependência será adicionada ao arquivo `package.json` em uma seção chamada `dependencies`, juntamente com suas versões correspondentes. Isso permite que você controle as versões das dependências usadas em seu projeto.
+
+# =============================================================================================================
+
 Repositório para a criação de um ambiente para testes de invasão.
 
 Criar uma API para testes envolve o desenvolvimento de um serviço que pode receber solicitações HTTP e fornecer respostas para fins de testes e desenvolvimento. Aqui estão os passos básicos para criar uma API simples para testes:
@@ -38,3 +86,54 @@ Criar uma API para testes envolve o desenvolvimento de um serviço que pode rece
     Se você quiser tornar sua API acessível para outras pessoas, considere implantá-la em um servidor web. Isso envolve configurar um servidor, um domínio e garantir que a API esteja segura.
 
 Lembre-se de que essa é apenas uma visão geral dos passos envolvidos. A complexidade pode variar dependendo das necessidades da sua API e das tecnologias escolhidas.
+
+# CRIANDO O AMBIENTE NO MACBOOK AIR M1
+
+Para criar um ambiente no Conda no MacBook Air M1 para a criação e testes de APIs, siga esses passos:
+
+1. **Instalar o Miniconda:**
+   Primeiro, você precisa instalar o Miniconda, que é uma versão mínima do Anaconda, um gerenciador de ambientes e pacotes. Baixe o instalador do Miniconda para macOS ARM64 (M1) a partir do site oficial: https://docs.conda.io/en/latest/miniconda.html
+
+   Abra o terminal e navegue até a pasta onde você baixou o arquivo do instalador. Execute o seguinte comando (substitua `Miniconda3-latest-MacOSX-arm64.sh` pelo nome do arquivo baixado):
+   
+   ```sh
+   bash Miniconda3-latest-MacOSX-arm64.sh
+   ```
+
+   Siga as instruções na tela para concluir a instalação.
+
+2. **Criar um Novo Ambiente:**
+   Com o Miniconda instalado, você pode criar um novo ambiente isolado para suas atividades de desenvolvimento e testes. Abra o terminal e execute o seguinte comando para criar um novo ambiente chamado "api-env" (substitua `<versão-do-python>` pela versão desejada, por exemplo, `3.8`):
+
+   ```sh
+   conda create -n api-env python=<versão-do-python>
+   ```
+
+3. **Ativar o Ambiente:**
+   Após criar o ambiente, ative-o usando o seguinte comando:
+
+   ```sh
+   conda activate api-env
+   ```
+
+4. **Instalar Pacotes:**
+   Agora você pode instalar os pacotes necessários para o desenvolvimento da API. Por exemplo, se você estiver usando Flask para criar a API em Python, instale-o usando o seguinte comando:
+
+   ```sh
+   conda install flask
+   ```
+
+   Instale outros pacotes conforme necessário para suas atividades de desenvolvimento e teste.
+
+5. **Desenvolver e Testar:**
+   Com o ambiente ativado e os pacotes instalados, você pode começar a desenvolver e testar suas APIs. Crie seus arquivos de código-fonte e inicie a construção da API de acordo com as instruções que mencionei anteriormente.
+
+Lembre-se de que você sempre precisará ativar o ambiente usando `conda activate api-env` antes de começar a trabalhar em sua API. Quando terminar, você pode desativar o ambiente usando o comando `conda deactivate`.
+
+Para remover o ambiente quando não precisar mais dele, use o seguinte comando (certifique-se de não estar dentro do ambiente ao executar este comando):
+
+```sh
+conda env remove -n api-env
+```
+
+Lembre-se de substituir os nomes de ambiente e versões de pacotes conforme necessário para suas preferências e requisitos específicos.
