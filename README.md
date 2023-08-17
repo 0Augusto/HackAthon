@@ -1,4 +1,52 @@
 # HackAthon
+
+# ================================================DENPENDENCIAS=================================================
+
+Lista das dependências que mencionamos nos exemplos anteriores, juntamente com suas descrições e os comandos para instalá-las:
+
+1. **Node.js:**
+   Plataforma JavaScript de código aberto para desenvolvimento de aplicativos do lado do servidor. Instale usando o Node Version Manager (NVM) para melhor controle sobre as versões do Node.js.
+
+   - **Site:** https://nodejs.org/
+   - **Instalação do NVM (Opcional):** `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash`
+   - **Instalação do Node.js usando NVM:** `nvm install node`
+
+2. **Express.js:**
+   Framework web rápido, flexível e minimalista para Node.js, que simplifica a criação de APIs e aplicativos da web.
+
+   - **Site:** https://expressjs.com/
+   - **Instalação:** `npm install express`
+
+3. **body-parser:**
+   Middleware para analisar os corpos das solicitações HTTP, especialmente útil para processar dados de formulários HTML ou JSON.
+
+   - **Site:** https://www.npmjs.com/package/body-parser
+   - **Instalação:** `npm install body-parser`
+
+4. **Postman:**
+   Ferramenta de colaboração para testar APIs, onde você pode criar, testar e compartilhar solicitações HTTP.
+
+   - **Site:** https://www.postman.com/
+   - **Instalação:** Baixe e instale a versão apropriada para o seu sistema operacional.
+
+Lembre-se de que, para instalar as dependências, você deve estar no diretório do projeto (onde seu arquivo `package.json` está localizado) e executar os comandos `npm install <nome_da_dependencia>`. Certifique-se de substituir `<nome_da_dependencia>` pelo nome da dependência específica que você deseja instalar.
+
+Por exemplo, para instalar o Express.js, você executaria:
+
+```sh
+npm install express
+```
+
+E para instalar todas as dependências de uma vez, você pode executar:
+
+```sh
+npm install express body-parser
+```
+
+Cada dependência será adicionada ao arquivo `package.json` em uma seção chamada `dependencies`, juntamente com suas versões correspondentes. Isso permite que você controle as versões das dependências usadas em seu projeto.
+
+# =============================================================================================================
+
 Repositório para a criação de um ambiente para testes de invasão.
 
 Criar uma API para testes envolve o desenvolvimento de um serviço que pode receber solicitações HTTP e fornecer respostas para fins de testes e desenvolvimento. Aqui estão os passos básicos para criar uma API simples para testes:
