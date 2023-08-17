@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 const port = 3000;
@@ -8,28 +9,28 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const users = [];
+// Conexão com o banco de dados MongoDB
+require('./db');
+
+// Definição do modelo do usuário
+const User = mongoose.model('User', {
+  username: String,
+  email: String,
+  password: String,
+});
 
 // Rota para cadastro de usuários
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
-  
-  // Validação básica (certifique-se de adicionar validações mais robustas em um ambiente de produção)
-  if (!username || !email || !password) {
-    return res.status(400).json({ message: 'Todos os campos são obrigatórios.' });
+
+  try {
+    const user = new User({ username, email, password });
+    await user.save();
+    res.status(201).json({ message: 'Usuário cadastrado com sucesso.' });
+  } catch (error) {
+    console.error('Erro ao cadastrar usuário:', error);
+    res.status(500).json({ message: 'Erro interno do servidor.' });
   }
-
-  // Verifica se o usuário já está cadastrado
-  const existingUser = users.find(user => user.email === email);
-  if (existingUser) {
-    return res.status(409).json({ message: 'Usuário já cadastrado com este email.' });
-  }
-
-  // Cria um novo usuário e o adiciona à lista de usuários
-  const newUser = { username, email, password };
-  users.push(newUser);
-
-  res.status(201).json({ message: 'Usuário cadastrado com sucesso.' });
 });
 
 app.listen(port, () => {
